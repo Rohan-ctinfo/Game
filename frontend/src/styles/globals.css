@@ -1,0 +1,236 @@
+﻿:root {
+  --bg-1: #fef8ef;
+  --bg-2: #f4d5a6;
+  --ink: #1c1d22;
+  --panel: rgba(255, 255, 255, 0.92);
+  --line: #dcb98e;
+  --accent: #1273ea;
+  --accent-2: #0c5cc0;
+  --danger: #b42318;
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--ink);
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 10%, var(--bg-1), var(--bg-2));
+}
+
+a { color: inherit; text-decoration: none; }
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.86);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(6px);
+}
+
+.brand { font-weight: 800; letter-spacing: 0.3px; }
+.navbar nav { display: flex; gap: 14px; }
+.logout-btn {
+  border: none;
+  background: var(--accent);
+  color: white;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.page-wrap { padding: 22px; }
+
+.auth-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.auth-panel, .panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 12px 26px rgba(35, 34, 31, 0.08);
+}
+
+.auth-panel { width: min(460px, 100%); }
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+input, select, button {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  margin-top: 8px;
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover { background: var(--accent-2); }
+button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.link {
+  background: transparent;
+  color: var(--accent);
+  border: none;
+  padding: 0;
+  margin-top: 14px;
+  text-align: left;
+}
+
+.error { color: var(--danger); display: block; margin-top: 4px; }
+
+.game-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 16px;
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}
+
+.arena {
+  min-height: 380px;
+}
+
+.status-line {
+  margin-top: 6px;
+  font-size: 15px;
+  color: #374151;
+}
+
+.turn-box {
+  margin: 16px 0;
+  padding: 14px;
+  border: 1px dashed #9ec4f4;
+  border-radius: 12px;
+  background: #f5faff;
+}
+
+.turn-box span {
+  display: block;
+  font-size: 13px;
+  color: #475569;
+}
+
+.turn-box strong {
+  font-size: 18px;
+}
+
+.power-box {
+  margin-bottom: 14px;
+}
+
+.dice-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.dice-row button {
+  max-width: 180px;
+}
+
+.dice-face {
+  min-width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  border: 2px solid #cbd5e1;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  background: #fff;
+}
+
+.ludo-board {
+  margin-top: 10px;
+  width: 100%;
+  max-width: 620px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #111;
+  background: #fff;
+}
+
+.ludo-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.sidebar .player-card {
+  border: 1px solid #e8d0af;
+  border-radius: 12px;
+  padding: 10px;
+  margin-top: 10px;
+  background: #fffdfa;
+}
+
+.player-card.active-turn {
+  border-color: #86b6f3;
+  background: #f3f8ff;
+}
+
+.player-head,
+.score-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.score-row {
+  font-size: 13px;
+  color: #475569;
+  margin-top: 8px;
+}
+
+.progress {
+  margin-top: 8px;
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: #eceff4;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #45a5ff, #2c6fd8);
+}
+
+.turn-badge {
+  margin-top: 8px;
+  display: inline-block;
+  background: #d9edff;
+  color: #1d4e89;
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.game-foot {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 980px) {
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .page-wrap { padding: 14px; }
+  .game-layout { grid-template-columns: 1fr; }
+}
